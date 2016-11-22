@@ -5,11 +5,13 @@ include("engine.php");
 templateBefore("Main Room");
 
 //Start: clear room
-//clear_conversation();
+if (strlen($_POST[send_msg]) < 1){
+    clear_conversation();
+}
 
 $conversation_text = "";
 if (isset($_POST[send_msg])) {
-    // user is going to be php unique server param.
+    //User is going to be php unique server param
 
     $message = trim($_POST[send_msg]);
     $user = $_SERVER['UNIQUE_ID'];
