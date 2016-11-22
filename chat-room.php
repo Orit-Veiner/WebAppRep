@@ -11,10 +11,10 @@ if (strlen($_POST[send_msg]) < 1){
 
 $conversation_text = "";
 if (isset($_POST[send_msg])) {
-    //User is going to be php unique server param
+    //User is going to be php unique server param (no time for better option)
 
     $message = trim($_POST[send_msg]);
-    $user = $_SERVER['UNIQUE_ID'];
+    $user = "user ".substr($_SERVER['UNIQUE_ID'], 1, 4);
     $display_message = send_message($user, $message);
     $conversation_text = $display_message;
 }
